@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Coffee Time</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <title>Image Slider</title>
+    <style>
+        /* Custom CSS for styling the image slider */
+        .slider-container {
+            width: 80%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .slider {
+            width: 100%;
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 25%;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+        }
+    </style>
+
+
+    
+</head>
+<body>
+
+    <script type = "text/javascript">
+
+        /***********************************************
+        * Display time of last visit script- by JavaScriptKit.com
+        * This notice MUST stay intact for use
+        * Visit JavaScript Kit at http://www.javascriptkit.com/ for this script and more
+        ***********************************************/
+        
+        var days = 730; // days until cookie expires = 2 years.
+        var lastvisit=new Object();
+        var firstvisitmsg="This is your first visit to this page. Welcome!"; 
+        lastvisit.subsequentvisitmsg="Welcome back visitor! Your last visit was on <b>[displaydate]</b>";
+        
+        lastvisit.getCookie=function(Name){ 
+        var re=new RegExp(Name+"=[^;]+", "i"); 
+        if (document.cookie.match(re)) 
+        return document.cookie.match(re)[0].split("=")[1];
+        return''; 
+        }
+        
+        lastvisit.setCookie=function(name, value, days){ 
+        var expireDate = new Date();
+        
+        var expstring=expireDate.setDate(expireDate.getDate()+parseInt(days));
+        document.cookie = name+"="+value+"; expires="+expireDate.toGMTString()+"; path=/";
+        }
+        
+        lastvisit.showmessage = function() {
+        var wh = new Date();
+        if (lastvisit.getCookie("visitc") == "") { 
+        lastvisit.setCookie("visitc", wh, days); 
+        document.write(firstvisitmsg);
+        }
+        
+        else {
+        var lv = lastvisit.getCookie("visitc");
+        var lvp = Date.parse(lv);
+        var now = new Date();
+        now.setTime(lvp);
+        var day = new Array("Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat");
+        var month = new Array ("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
+        var dd = now.getDate();
+        var dy = now.getDay();
+        dy = day[dy];
+        var mn = now.getMonth();
+        mn = month[mn];
+        yy = now.getFullYear();
+        var hh = now.getHours();
+        var ampm = "AM";
+        if (hh >= 12) {ampm = "PM"}
+        if (hh >12){hh = hh - 12};
+        if (hh == 0) {hh = 12}
+        if (hh < 10) {hh = "0" + hh};
+        var mins = now.getMinutes();
+        if (mins < 10) {mins = "0"+ mins}
+        var secs = now.getSeconds();
+        if (secs < 10) {secs = "0" + secs}
+        var dispDate = dy + ", " + mn + " " + dd + ", " + yy + " " + hh + ":" + mins + ":" + secs + " " + ampm
+        document.write(lastvisit.subsequentvisitmsg.replace("\[displaydate\]", dispDate))
+        }
+        
+        lastvisit.setCookie("visitc", wh, days);
+        
+        }
+        
+        lastvisit.showmessage();
+        
+        </script>
+
+
+    <!-- Bootstrap Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.html">Coffee Time</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About Me</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="selections.html">Our Selections</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html" target="_blank">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <h1>Welcome to Coffee Time</h1>
+    <p>Enjoy a relaxing cup of coffee and take a break from your day.</p>
+    <h2>Our Coffee Menu</h2>
+    <p>We offer a variety of coffee options, including:</p>
+    <ul>
+        <li>Espresso</li>
+        <li>Cappuccino</li>
+        <li>Latte</li>
+        <li>Americano</li>
+    </ul>
+    <p>If you're an MHI1001 student at the University of Toronto, you can enjoy our coffee at a 50% discount. We're here to fuel your studies with great coffee!</p>
+    <p>For other students, we offer a range of coffee options at competitive prices.</p>
+
+
+    <h1>Aesthetic Coffee Video</h1>
+    
+    <iframe width="560" height="315" 
+    src="https://www.youtube.com/embed/nyDnQQSUfL0?si=TlDYl9Ef__Au9F0e" t
+    itle="YouTube video player" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    allowfullscreen></iframe>
+
+    <p>Visit the following coffee shops for more options:</p>
+    <ul>
+        <li><a href="https://www.starbucks.com" target="_blank">Starbucks</a></li>
+        <li><a href="https://www.timhortons.com" target="_blank">Tim Hortons</a></li>
+    </ul>
+
+    <!-- Bootstrap Image Slider (Gallery) -->
+    
+        <div class="slider-container">
+            <div class="slider">
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1512568400610-62da28bc8a13?auto=format&fit=crop&q=60&w=800&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8OXx8fGVufDB8fHx8fA%3D%3D" alt="Coffee Beans" width="300">
+                </div>
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=60&w=800&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8fA%3D%3D" alt="Coffee Cup" width="300">
+                </div>
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1610632380989-680fe40816c6?auto=format&fit=crop&q=60&w=800&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTZ8fHxlbnwwfHx8fHw%3D" alt="Coffee Beans" width="300">
+                </div>
+                <div class="slide">
+                    <img src="https://plus.unsplash.com/premium_photo-1664970900025-1e3099ca757a?auto=format&fit=crop&q=60&w=800&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y29mZmVlJTIwc2hvcHxlbnwwfHwwfHx8MA%3D%3D" alt="shop" width="300">
+                </div>
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1605187151664-9d89904d62d0?auto=format&fit=crop&q=60&w=800&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29mZmVlJTIwYWVzdGhldGljfGVufDB8fDB8fHww" alt="aesthtic" width="300" height=" 350">
+                </div>
+                <div class="slide">
+                    <img src="https://plus.unsplash.com/premium_photo-1679932888846-1911d6fcd2d4?auto=format&fit=crop&q=60&w=800&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y29mZmVlJTIwd2l0aCUyMGZyaWVuZHN8ZW58MHx8MHx8fDA%3D" alt="friendwithcoffee" width="300">
+                </div>
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1510972527921-ce03766a1cf1?auto=format&fit=crop&q=60&w=800&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y29mZmVlJTIwd2l0aCUyMGZyaWVuZHN8ZW58MHx8MHx8fDA%3D" alt="just coffee" width="300">
+                </div>
+            </div>
+        </div>
+    
+        <button class="prev">Previous</button>
+        <button class="next">Next</button>
+    
+        <script>
+            // JavaScript for image slider
+            const slider = document.querySelector(".slider");
+            const slides = document.querySelectorAll(".slide");
+            let counter = 0;
+            const slideWidth = slides[0].clientWidth;
+    
+            // Event listener for "Next" button
+            document.querySelector(".next").addEventListener("click", () => {
+                if (counter < slides.length - 1) {
+                    counter++;
+                    slider.style.transform = `translateX(-${counter * slideWidth}px)`;
+                }
+            });
+    
+            // Event listener for "Previous" button
+            document.querySelector(".prev").addEventListener("click", () => {
+                if (counter > 0) {
+                    counter--;
+                    slider.style.transform = `translateX(-${counter * slideWidth}px)`;
+                }
+            });
+        </script>
+
+    
+    <!-- Bootstrap Accordion Element -->
+<div id="accordion">
+    <div class="card">
+        <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Coffee Discounts
+                </button>
+            </h5>
+        </div>
+
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+                If you're an MHI1001 student at the University of Toronto, you can enjoy our coffee at a 50% discount. We value your studies, and we're here to support you with quality coffee.
+                <br>
+                <a href="#" data-toggle="modal" data-target="#discountImageModal">
+                    <img src="https://marketplace.canva.com/EAFNx00LDsE/1/0/1131w/canva-beige-neutral-minimalistic-coffee-coupon-jduQ5lF1CFo.jpg" alt="Coffee Discounts Image">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Lightbox Modal -->
+<div class="modal fade" id="discountImageModal" tabindex="-1" role="dialog" aria-labelledby="discountImageModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="discountImageModalLabel">Coffee Discounts</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img src="https://marketplace.canva.com/EAFNx00LDsE/1/0/1131w/canva-beige-neutral-minimalistic-coffee-coupon-jduQ5lF1CFo.jpg" alt="Coffee Discounts Image">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
